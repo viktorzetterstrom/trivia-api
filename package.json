@@ -1,0 +1,30 @@
+{
+  "name": "trivia-api",
+  "version": "0.0.1",
+  "description": "Wrapper around the Open Trivia Api",
+  "main": "index.js",
+  "scripts": {
+    "start-dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viktorzetterstrom/trivia-api.git"
+  },
+  "author": "Viktor Zetterström",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/viktorzetterstrom/trivia-api/issues"
+  },
+  "homepage": "https://github.com/viktorzetterstrom/trivia-api#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "nodemon": "^1.19.4"
+  }
+}

@@ -4,10 +4,10 @@ const qs = require('querystring');
 const BASE_URL = 'https://opentdb.com/api.php?';
 
 const shuffleArray = (a) => {
-  const shuffled = [...Array(a.length)];
+  const shuffled = [...a];
   for (let i = a.length - 1; i > 0; i -= 1) {
     const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [a[j], a[i]];
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
   return shuffled;
 };

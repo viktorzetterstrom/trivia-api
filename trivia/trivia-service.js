@@ -15,7 +15,8 @@ const shuffleArray = (a) => {
 const questions = async (options = { amount: 10 }) => {
   const { results } = await fetch(`${BASE_URL}${qs.encode(options)}`).then((res) => res.json());
   return results
-    .map((q) => ({
+    .map((q, i) => ({
+      nr: i + 1,
       category: q.category,
       type: q.type,
       difficulty: q.difficulty,

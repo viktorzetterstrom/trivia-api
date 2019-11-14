@@ -12,4 +12,4 @@ app.get('/questions', async (req, res) => {
   res.json(questions);
 });
 
-app.listen(6000, () => 'Listening on port 6000');
+app.listen(3001, () => 'Listening on port 3001');

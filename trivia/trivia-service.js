@@ -1,5 +1,6 @@
 const fetch = require('node-fetch');
 const qs = require('querystring');
+const he = require('he');
 
 const BASE_URL = 'https://opentdb.com/api.php?';
 
@@ -20,11 +21,11 @@ const questions = async (options = { amount: 10 }) => {
       category: q.category,
       type: q.type,
       difficulty: q.difficulty,
-      question: q.question,
-      correct: q.correct_answer,
+      question: he.decode(q.question),
+      correct: he.decode(q.correct_answer),
       alternatives: shuffleArray([
-        q.correct_answer,
-        ...q.incorrect_answers,
+        he.decode(q.correct_answer),
+        ...q.incorrect_answers.map((a) => he.decode(a)),
       ]),
     }));
 };

@@ -1,13 +1,23 @@
 const express = require('express');
+const cors = require('cors');
 const trivia = require('./trivia');
 
 const app = express();
+app.use(require('helmet')());
 
-app.get('/test', (_, res) => {
-  res.send('Hello, World!');
-});
+const whitelist = ['https://trivia.zetterstrom.dev'];
 
-app.get('/questions', async (req, res) => {
+const corsOptions = {
+  origin: (origin, cb) => {
+    if (whitelist.includes(origin) || process.env.NODE_ENV === 'development') {
+      cb(null, true);
+    } else {
+      cb(new Error('Not allowed by CORS'));
+    }
+  },
+};
+
+app.get('/questions', cors(corsOptions), async (req, res) => {
   const questions = await trivia.service.questions(req.body);
   res.json(questions);
 });

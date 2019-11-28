@@ -18,7 +18,7 @@ const corsOptions = {
 };
 
 app.get('/questions', cors(corsOptions), async (req, res) => {
-  const questions = await trivia.service.questions(req.body);
+  const questions = await trivia.service.questions(req.query);
   res.json(questions);
 });
 

@@ -22,4 +22,4 @@ app.get('/questions', cors(corsOptions), async (req, res) => {
   res.json(questions);
 });
 
-app.listen(3001, () => 'Listening on port 3001');
+app.listen(process.env.PORT);

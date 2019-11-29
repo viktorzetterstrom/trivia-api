@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const trivia = require('./trivia');
 
@@ -6,7 +7,10 @@ app.use(require('helmet')());
 
 
 app.get('/questions', async (req, res) => {
-  const questions = await trivia.service.questions(req.query);
+  const options = Object.keys(req.query).length > 0
+    ? req.query
+    : { amount: 10 };
+  const questions = await trivia.service.questions(options);
   res.json(questions);
 });
 

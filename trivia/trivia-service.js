@@ -13,7 +13,8 @@ const shuffleArray = (a) => {
   return shuffled;
 };
 
-const questions = async (options = { amount: 10 }) => {
+const questions = async (options) => {
+  console.log(`${BASE_URL}${qs.encode(options)}`);
   const { results } = await fetch(`${BASE_URL}${qs.encode(options)}`).then((res) => res.json());
   return results
     .map((q, i) => ({

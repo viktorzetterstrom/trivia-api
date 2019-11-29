@@ -4,7 +4,7 @@ const trivia = require('./trivia');
 
 const app = express();
 app.use(require('helmet')());
-
+app.use(require('cors')());
 
 app.get('/questions', async (req, res) => {
   const options = Object.keys(req.query).length > 0

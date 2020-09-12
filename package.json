@@ -24,7 +24,7 @@
     "express": "^4.17.1",
     "he": "^1.2.0",
     "helmet": "^3.21.2",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {
     "eslint": "^6.6.0",
